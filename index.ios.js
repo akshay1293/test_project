@@ -11,6 +11,7 @@ import {
   Text,
   View
 } from 'react-native';
+import Index from './component/index';
 
 export default class reactnativeHELLOWORLD extends Component {
   render() {
@@ -50,4 +51,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('reactnativeHELLOWORLD', () => reactnativeHELLOWORLD);
+AppRegistry.registerComponent('reactnativeHELLOWORLD', () => Index);
