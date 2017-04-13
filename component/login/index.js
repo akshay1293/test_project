@@ -15,7 +15,7 @@ export default class Login extends React.Component {
                 <TextInput style={{marginLeft:64, width:256}}></TextInput>
                 <Text style={{fontSize:16, marginLeft:64}}>Password</Text>
                 <TextInput style={{marginLeft:64, width:256}}></TextInput>
-                <TouchableHighlight style={{alignItems:'center', backgroundColor:'lightgreen', marginLeft:64, padding:16, width:256}} underlayColor="silver" onPress={this.checkSubmit}>
+                <TouchableHighlight style={{alignItems:'center', backgroundColor:'lightgreen', marginLeft:64, padding:16, width:256}} underlayColor="limegreen" onPress={this.checkSubmit}>
                     <Text style={{fontSize:16}}>Submit</Text>
                 </TouchableHighlight>
             </View>
