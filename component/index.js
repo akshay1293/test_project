@@ -1,10 +1,10 @@
 import React from 'react';
 import {
     Image,
-    StyleSheet,
-    Text,
     View
 } from 'react-native';
+import Loading from './loading';
+import Login from './login/index';
 
 export default class Index extends React.Component {
     constructor() {
@@ -18,26 +18,11 @@ export default class Index extends React.Component {
             this.setState({
                 loading: false
             });
-        }, 3000);
+        }, 0);
         return (
-            <View style={styles.container}>
-                {this.state.loading ? <Image style={styles.image} source={require('../asset/loading.png')} /> : <Text style={styles.hello}>Hello World</Text>}
+            <View style={{flex: 1}}>
+                {this.state.loading ? <Loading /> : <Login />}
             </View>
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        alignItems: 'center',
-        flex: 1,
-        justifyContent: 'center'
-    },
-    image: {
-        width: 400,
-        height: 600
-    },
-    hello: {
-        fontSize: 16
-    }
-});
