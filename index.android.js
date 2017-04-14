@@ -11,8 +11,9 @@ import {
   Text,
   View
 } from 'react-native';
-import Index from './component/index';
+
+import Navigator from './component/navigator';
 
 
 
-AppRegistry.registerComponent('reactnativeHELLOWORLD', () => Index);
+AppRegistry.registerComponent('reactnativeHELLOWORLD', () => Navigator);
