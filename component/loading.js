@@ -4,6 +4,7 @@ import {
     StyleSheet,
     Text
 } from 'react-native';
+import Device from 'react-native-device-info';
 
 export default class Loading extends React.Component {
     render() {
@@ -18,9 +19,10 @@ export default class Loading extends React.Component {
 
 const styles = StyleSheet.create({
     background: {
-        alignItems: 'center', 
-        height: 600, 
-        width: 400
+        alignItems: 'center',
+        flex: 1,
+        height: Device.height,
+        width: Device.width
     },
     title: {
         color: 'white',
