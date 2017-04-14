@@ -44,14 +44,14 @@ export default class Login extends React.Component {
         RNFS.readFile(path, 'utf8')
             .then((data) => {
                 let stringifyData = '';
-                if(data === '') {
+                if (data === '') {
                     jsonObj.cups.push(temp);
                     stringifyData = JSON.stringify(jsonObj);
                 } else {
                     let parseData = JSON.parse(data);
                     parseData.cups.push(temp);
                     stringifyData = JSON.stringify(parseData);
-                }   
+                }
 
                 RNFS.writeFile(path, stringifyData, 'utf8')
                     .then((success) => {

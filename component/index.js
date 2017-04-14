@@ -18,9 +18,9 @@ export default class Index extends React.Component {
             this.setState({
                 loading: false
             });
-        }, 2000);
+        }, 0);
         return (
-            <View style={{flex: 1}}>
+            <View style={{ flex: 1 }}>
                 {this.state.loading ? <Loading /> : <Login />}
             </View>
         );
