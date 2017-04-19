@@ -14,11 +14,11 @@ export default class Login extends React.Component {
         super();
         this.state = {
             mail: '',
-            // pass: '',
             loading: true
         };
     }
     componentDidMount() {
+        // NOTE REMOVE TIMEOUT IF CHAT FILE READING IS APPLIED
         setTimeout(() => {
             this.setState({
                 loading: false
@@ -27,7 +27,7 @@ export default class Login extends React.Component {
 
     }
     render() {
-
+        // NOTE READ CHAT FILE HERE
         return (
 
             <View style={{ flex: 1 }}>{this.state.loading ? this.renderLoading() : this.renderLogin()}</View>
@@ -47,7 +47,7 @@ export default class Login extends React.Component {
             })
         })
             .then((response) => {
-                this.props.navigator.push({ id: id, otp: generatedOTP });
+                this.props.navigator.push({ id: id, otp: generatedOTP, mail: this.state.mail });
             })
             .catch((error) => {
                 console.error(error);
@@ -56,14 +56,13 @@ export default class Login extends React.Component {
     }
 
     renderLogin() {
-
+        // NOTE IF USER IS REGISTERD
         return (
             <View style={{ backgroundColor: 'white', flex: 1, justifyContent: 'center' }}>
                 <Text style={{ fontSize: 48, fontFamily: 'cursive_bold', marginLeft: 32, marginBottom: 32 }}>Sign in</Text>
                 <Text style={{ fontSize: 16, marginLeft: 48 }}>Email address</Text>
-                <TextInput onChangeText={(mail) => this.setState({ mail })} style={styles.input} ></TextInput>
-                {/*<Text style={{ fontSize: 16, marginLeft: 48 }}>Password</Text>
-                <TextInput onChangeText={(pass) => this.setState({ pass })} style={styles.input} underlineColorAndroid='black' secureTextEntry ></TextInput>*/}
+                <TextInput onChangeText={(mail) => this.setState({ mail })} style={styles.input} keyboardType='email-address' ></TextInput>
+                
                 <TouchableHighlight style={{ alignItems: 'center', backgroundColor: 'lightgreen', marginLeft: 64, padding: 16, width: 256 }} underlayColor="limegreen" onPress={() => this.checkSubmit('otpConfirm')}>
                     <Text style={{ color: 'white', fontSize: 16 }}>Next</Text>
                 </TouchableHighlight>
@@ -73,9 +72,7 @@ export default class Login extends React.Component {
     }
 
     renderLoading() {
-
         return (
-
             <Image style={styles.background} source={require('../../asset/coffee_bg.jpg')}>
                 <Text style={styles.title}>Empty Coffee Cups</Text>
                 <Text style={{ color: 'white', fontSize: 16 }}>~ no coffee ~ no talkee ~</Text>
@@ -100,6 +97,5 @@ const styles = StyleSheet.create({
     input: {
         marginLeft: 64,
         width: 256,
-
     }
 });
