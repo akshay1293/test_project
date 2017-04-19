@@ -13,7 +13,11 @@ export default class Here extends React.Component {
 
         return (
 
-            <View style={styles.container}><Text>you are here!!</Text></View>
+            <View>
+                <Text>you are here!!</Text>
+                {console.log("you are here!!")}
+            </View>
+
         );
     }
 }

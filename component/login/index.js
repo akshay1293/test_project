@@ -84,10 +84,11 @@ export default class Login extends React.Component {
                 <Text style={{ fontSize: 16, marginLeft: 48 }}>Email address</Text>
                 <TextInput onChangeText={(mail) => this.setState({ mail })} style={{ marginLeft: 64, width: 256 }} ></TextInput>
                 <Text style={{ fontSize: 16, marginLeft: 48 }}>Password</Text>
-                <TextInput onChangeText={(pass) => this.setState({ pass })} style={{ marginLeft: 64, width: 256 }} ></TextInput>
+                <TextInput onChangeText={(pass) => this.setState({ pass })} style={{ marginLeft: 64, width: 256 }} secureTextEntry ></TextInput>
                 <TouchableHighlight style={{ alignItems: 'center', backgroundColor: 'lightgreen', marginLeft: 64, padding: 16, width: 256 }} underlayColor="limegreen" onPress={() => this.checkSubmit('next')}>
                     <Text style={{ color: 'white', fontSize: 16 }}>Submit</Text>
                 </TouchableHighlight>
+                {console.log(this.props.route.hi)}
             </View>
         );
     }

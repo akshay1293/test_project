@@ -15,7 +15,7 @@ export default class Nav extends React.Component {
         switch (route.id) {
 
             case 'login':
-                return <Login route={route} navigator={navigator} />
+                return <Login route={route} navigator={navigator} hi='hello' />
             case 'next':
                 <Here route={route} navigator={navigator} />
         }
