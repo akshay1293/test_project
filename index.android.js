@@ -12,9 +12,9 @@ import {
   View
 } from 'react-native';
 import OtpConfirm from './component/login/otpConfirm'
-
+import EnterName from './component/login/enterName'
 import Navigator from './component/navigator';
 
 
 
-AppRegistry.registerComponent('reactnativeHELLOWORLD', () => OtpConfirm);
+AppRegistry.registerComponent('reactnativeHELLOWORLD', () => Navigator);
