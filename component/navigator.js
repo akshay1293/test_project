@@ -7,6 +7,7 @@ import {
 
 import Login from './login/index';
 import OtpConfirm from './login/otpConfirm';
+import EnterName from './login/enterName';
 
 export default class Nav extends React.Component {
 
@@ -18,6 +19,8 @@ export default class Nav extends React.Component {
                 return <Login route={route} navigator={navigator} />
             case 'otpConfirm':
                 return <OtpConfirm route={route} navigator={navigator} otp={route.otp} />
+            case 'name':
+                return <EnterName route={route} navigator={navigator} />
         }
     }
 
