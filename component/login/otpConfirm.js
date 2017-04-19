@@ -13,7 +13,7 @@ export default class OtpConfirm extends React.Component {
 
         return (
             <View style={styles.container}>
-                <TextInput style={styles.inputOtp} placeholder="Enter OTP" keyboardType="numeric" underlineColorAndroid='black' maxLength={4} returnKeyType='next' ></TextInput>
+                <TextInput style={styles.inputOtp} placeholder="Enter OTP" keyboardType="numeric" maxLength={6} returnKeyType='next' ></TextInput>
             </View>
         );
     }

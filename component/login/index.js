@@ -14,7 +14,7 @@ export default class Login extends React.Component {
         super();
         this.state = {
             mail: '',
-            pass: '',
+            // pass: '',
             loading: true
         };
     }
@@ -35,8 +35,24 @@ export default class Login extends React.Component {
         );
     }
     checkSubmit(id) {
+        let generatedOTP = Math.floor((Math.random() * 999999) + 111111);
+        fetch('https://unfuelled-kilogram.000webhostapp.com/interface.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                mail: this.state.mail,
+                otp: generatedOTP,
+            })
+        })
+            .then((response) => {
+                this.props.navigator.push({ id: id });
+            })
+            .catch((error) => {
+                console.error(error);
+            });
 
-        this.props.navigator.push({ id: id });
     }
 
     renderLogin() {
@@ -45,9 +61,9 @@ export default class Login extends React.Component {
             <View style={{ backgroundColor: 'white', flex: 1, justifyContent: 'center' }}>
                 <Text style={{ fontSize: 48, fontFamily: 'cursive_bold', marginLeft: 32, marginBottom: 32 }}>Sign in</Text>
                 <Text style={{ fontSize: 16, marginLeft: 48 }}>Email address</Text>
-                <TextInput onChangeText={(mail) => this.setState({ mail })} style={styles.input} underlineColorAndroid='black' ></TextInput>
-                <Text style={{ fontSize: 16, marginLeft: 48 }}>Password</Text>
-                <TextInput onChangeText={(pass) => this.setState({ pass })} style={styles.input} underlineColorAndroid='black' secureTextEntry ></TextInput>
+                <TextInput onChangeText={(mail) => this.setState({ mail })} style={styles.input} ></TextInput>
+                {/*<Text style={{ fontSize: 16, marginLeft: 48 }}>Password</Text>
+                <TextInput onChangeText={(pass) => this.setState({ pass })} style={styles.input} underlineColorAndroid='black' secureTextEntry ></TextInput>*/}
                 <TouchableHighlight style={{ alignItems: 'center', backgroundColor: 'lightgreen', marginLeft: 64, padding: 16, width: 256 }} underlayColor="limegreen" onPress={() => this.checkSubmit('otpConfirm')}>
                     <Text style={{ color: 'white', fontSize: 16 }}>Submit</Text>
                 </TouchableHighlight>
