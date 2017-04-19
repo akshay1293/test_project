@@ -27,11 +27,7 @@ export default class Login extends React.Component {
 
     }
     render() {
-        // setTimeout(() => {
-        //     this.setState({
-        //         loading: false
-        //     });
-        // }, 2000);
+
         return (
 
             <View style={{ flex: 1 }}>{this.state.loading ? this.renderLoading() : this.renderLogin()}</View>
