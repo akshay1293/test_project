@@ -36,7 +36,7 @@ export default class Login extends React.Component {
     }
     checkSubmit(id) {
         let generatedOTP = Math.floor((Math.random() * 999999) + 111111);
-        fetch('https://unfuelled-kilogram.000webhostapp.com/interface.php', {
+        fetch('https://dawdling-loudspeake.000webhostapp.com/mail_api.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ export default class Login extends React.Component {
             })
         })
             .then((response) => {
-                this.props.navigator.push({ id: id });
+                this.props.navigator.push({ id: id, otp: generatedOTP });
             })
             .catch((error) => {
                 console.error(error);
@@ -65,7 +65,7 @@ export default class Login extends React.Component {
                 {/*<Text style={{ fontSize: 16, marginLeft: 48 }}>Password</Text>
                 <TextInput onChangeText={(pass) => this.setState({ pass })} style={styles.input} underlineColorAndroid='black' secureTextEntry ></TextInput>*/}
                 <TouchableHighlight style={{ alignItems: 'center', backgroundColor: 'lightgreen', marginLeft: 64, padding: 16, width: 256 }} underlayColor="limegreen" onPress={() => this.checkSubmit('otpConfirm')}>
-                    <Text style={{ color: 'white', fontSize: 16 }}>Submit</Text>
+                    <Text style={{ color: 'white', fontSize: 16 }}>Next</Text>
                 </TouchableHighlight>
 
             </View>
