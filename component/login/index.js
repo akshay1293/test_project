@@ -35,7 +35,7 @@ export default class Login extends React.Component {
         );
     }
     checkSubmit(id) {
-        let generatedOTP = Math.floor((Math.random() * 999999) + 111111);
+        let generatedOTP = Math.floor((Math.random() * 900000) + 100000);
         fetch('https://dawdling-loudspeake.000webhostapp.com/mail_api.php', {
             method: 'POST',
             headers: {
