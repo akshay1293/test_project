@@ -11,6 +11,7 @@ import {
   Text,
   View
 } from 'react-native';
+import OtpConfirm from './component/login/otpConfirm'
 
 import Navigator from './component/navigator';
 
