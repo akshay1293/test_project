@@ -18,7 +18,7 @@ export default class Nav extends React.Component {
             case 'login':
                 return <Login route={route} navigator={navigator} />
             case 'otpConfirm':
-                return <OtpConfirm route={route} navigator={navigator} otp={route.otp} />
+                return <OtpConfirm route={route} navigator={navigator} otp={route.otp} mail={route.mail} />
             case 'name':
                 return <EnterName route={route} navigator={navigator} />
         }
