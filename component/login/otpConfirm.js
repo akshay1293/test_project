@@ -15,7 +15,10 @@ export default class OtpConfirm extends React.Component {
 
         super();
         this.state = {
-
+            userDetail: {
+                mail: '',
+                name: ''
+            },
             otp: ''
         }
     }
@@ -34,13 +37,36 @@ export default class OtpConfirm extends React.Component {
     }
 
     submitOtp() {
+        // if (this.state.otp == this.props.route.otp) {
+        if (this.state.otp == 1234) {
+            let RNFS = require('react-native-fs');
+            let path = RNFS.DocumentDirectoryPath + '/test.txt';
+            // let mail = this.props.route.mail;
+            let mail = "iamjaghitsingh@gmail.com";
+            let firstname = mail.split("@");
+            this.setState({
+                userDetail: {
+                    mail: mail,
+                    name: firstname[0]
+                }
+            }, () => {
+                RNFS.writeFile(path, JSON.stringify(this.state.userDetail), 'utf8')
+                    .then((success) => {
+                        RNFS.readFile(path, 'utf8')
+                            .then((data) => {
+                                console.log(data);
+                            })
+                            .catch((err) => {
+                                console.log(err.message);
+                            });
+                    })
+                    .catch((err) => {
+                        console.log(err.message);
+                    });
+            });
 
-        console.log(this.state.otp);
-        console.log(this.props.route.otp);
 
-        if (this.state.otp == this.props.route.otp) {
-
-            this.props.navigator.push({ id: 'name' });
+            // this.props.navigator.push({ id: 'name' });
         } else {
             ToastAndroid.show("Please enter a valid otp", ToastAndroid.SHORT);
         }
