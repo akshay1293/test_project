@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 
 import Login from './login/index';
-import Here from './login/here';
+import OtpConfirm from './login/otpConfirm';
 
 export default class Nav extends React.Component {
 
@@ -17,7 +17,7 @@ export default class Nav extends React.Component {
             case 'login':
                 return <Login route={route} navigator={navigator} hi='hello' />
             case 'next':
-                <Here route={route} navigator={navigator} />
+                <OtpConfirm route={route} navigator={navigator} />
         }
     }
 
