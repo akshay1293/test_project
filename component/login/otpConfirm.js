@@ -4,9 +4,8 @@ import {
     TextInput,
     View,
     StyleSheet,
-
 } from 'react-native';
-import Device from 'react-native-device-info';
+
 
 export default class OtpConfirm extends React.Component {
 
@@ -14,7 +13,7 @@ export default class OtpConfirm extends React.Component {
 
         return (
             <View style={styles.container}>
-                <TextInput style={styles.inputOtp} placeholder="Enter OTP" keyboardType="numeric" ></TextInput>
+                <TextInput style={styles.inputOtp} placeholder="Enter OTP" keyboardType="numeric" maxLength={4} returnKeyType='next' ></TextInput>
             </View>
         );
     }

@@ -36,7 +36,7 @@ export default class Login extends React.Component {
     }
     checkSubmit(id) {
 
-        this.props.navigator.push(id);
+        this.props.navigator.push({ id: id });
     }
 
     renderLogin() {
