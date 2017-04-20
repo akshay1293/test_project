@@ -17,4 +17,4 @@ import Navigator from './component/navigator';
 
 
 
-AppRegistry.registerComponent('reactnativeHELLOWORLD', () => OtpConfirm);
+AppRegistry.registerComponent('reactnativeHELLOWORLD', () => Navigator);
