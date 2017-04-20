@@ -8,6 +8,7 @@ import {
     Image
 } from 'react-native';
 import Device from 'react-native-device-info';
+// const RNFS = require('react-native-fs');
 
 export default class Login extends React.Component {
     constructor() {
@@ -16,6 +17,8 @@ export default class Login extends React.Component {
             mail: '',
             loading: true
         };
+        // this._path = RNFS.DocumentDirectoryPath + '/user.txt';
+        // this._parsedData = '';
     }
     componentDidMount() {
         // NOTE REMOVE TIMEOUT IF CHAT FILE READING IS APPLIED
@@ -25,9 +28,18 @@ export default class Login extends React.Component {
             });
         }, 2000);
 
+
     }
     render() {
         // NOTE READ CHAT FILE HERE
+        // RNFS.readFile(this._path, 'utf8')
+        //     .then((data) => {
+        //         this._parsedData = JSON.parse(data);
+        //         // console.log(this._parsedData.mail);
+        //     })
+        //     .catch((err) => {
+        //         console.log(err.message);
+        //     });
         return (
 
             <View style={{ flex: 1 }}>{this.state.loading ? this.renderLoading() : this.renderLogin()}</View>
@@ -46,7 +58,9 @@ export default class Login extends React.Component {
                 otp: generatedOTP,
             })
         })
-            .then((response) => {
+            .then((response) => response.json())
+            .then((responseJson) => {
+                console.log(responseJson.resp);
                 this.props.navigator.push({ id: id, otp: generatedOTP, mail: this.state.mail });
             })
             .catch((error) => {
@@ -57,18 +71,27 @@ export default class Login extends React.Component {
 
     renderLogin() {
         // NOTE IF USER IS REGISTERD
-        return (
-            <View style={{ backgroundColor: 'white', flex: 1, justifyContent: 'center' }}>
-                <Text style={{ fontSize: 48, fontFamily: 'cursive_bold', marginLeft: 32, marginBottom: 32 }}>Sign in</Text>
-                <Text style={{ fontSize: 16, marginLeft: 48 }}>Email address</Text>
-                <TextInput onChangeText={(mail) => this.setState({ mail })} style={styles.input} keyboardType='email-address' ></TextInput>
-                
-                <TouchableHighlight style={{ alignItems: 'center', backgroundColor: 'lightgreen', marginLeft: 64, padding: 16, width: 256 }} underlayColor="limegreen" onPress={() => this.checkSubmit('otpConfirm')}>
-                    <Text style={{ color: 'white', fontSize: 16 }}>Next</Text>
-                </TouchableHighlight>
+        /*console.log("#" + this._parsedData.mail + "#")
+        if (this._parsedData.mail != undefined) {
+            return (
+                <View style={{ flex: 1 }}>
+                    <Text>Hello</Text>
+                </View>
+            );
+        } else {*/
+            return (
+                <View style={{ backgroundColor: 'white', flex: 1, justifyContent: 'center' }}>
+                    <Text style={{ fontSize: 48, fontFamily: 'cursive_bold', marginLeft: 32, marginBottom: 32 }}>Sign in</Text>
+                    <Text style={{ fontSize: 16, marginLeft: 48 }}>Email address</Text>
+                    <TextInput onChangeText={(mail) => this.setState({ mail })} style={styles.input} keyboardType='email-address' ></TextInput>
 
-            </View>
-        );
+                    <TouchableHighlight style={{ alignItems: 'center', backgroundColor: 'lightgreen', marginLeft: 64, padding: 16, width: 256 }} underlayColor="limegreen" onPress={() => this.checkSubmit('otpConfirm')}>
+                        <Text style={{ color: 'white', fontSize: 16 }}>Next</Text>
+                    </TouchableHighlight>
+
+                </View>
+            );
+        // }
     }
 
     renderLoading() {
