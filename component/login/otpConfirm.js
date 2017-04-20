@@ -37,12 +37,12 @@ export default class OtpConfirm extends React.Component {
     }
 
     submitOtp() {
-        // if (this.state.otp == this.props.route.otp) {
-        if (this.state.otp == 1234) {
+        if (this.state.otp == this.props.route.otp) {
+        // if (this.state.otp == 1234) {
             let RNFS = require('react-native-fs');
-            let path = RNFS.DocumentDirectoryPath + '/test.txt';
-            // let mail = this.props.route.mail;
-            let mail = "iamjaghitsingh@gmail.com";
+            let path = RNFS.DocumentDirectoryPath + '/user.txt';
+            let mail = this.props.route.mail;
+            // let mail = "iamjaghitsingh@gmail.com";
             let firstname = mail.split("@");
             this.setState({
                 userDetail: {
