@@ -26,9 +26,9 @@ export default class OtpConfirm extends React.Component {
 
         return (
             <View style={styles.container}>
-                <Text style={{ fontSize: 16, marginLeft: 48 }}>Enter OTP</Text>
+                <Text style={{ fontSize: 16, marginRight: 192 }}>Enter OTP</Text>
                 <TextInput style={styles.inputOtp} ref='otp' keyboardType="numeric" maxLength={7} onChangeText={(otp) => { this.setState({ otp }) }} ></TextInput>
-                <TouchableHighlight style={{ alignItems: 'center', backgroundColor: 'lightgreen', marginLeft: 48, padding: 16, width: 256 }} onPress={() => { this.submitOtp() }} underlayColor="limegreen">
+                <TouchableHighlight style={{ alignItems: 'center', backgroundColor: 'lightgreen', padding: 16, width: 256 }} onPress={() => { this.submitOtp() }} underlayColor="limegreen">
                     <Text style={{ color: 'white', fontSize: 16 }}>Submit OTP</Text>
                 </TouchableHighlight>
 
@@ -78,11 +78,11 @@ const styles = StyleSheet.create({
     container: {
 
         flex: 1,
-
+        alignItems: 'center',
         justifyContent: 'center'
     },
     inputOtp: {
-        marginLeft: 48,
+        // marginLeft: 48,
         width: 256,
         textAlign: 'center',
     },
