@@ -80,12 +80,12 @@ export default class Login extends React.Component {
             );
         } else {*/
             return (
-                <View style={{ backgroundColor: 'white', flex: 1, justifyContent: 'center' }}>
-                    <Text style={{ fontSize: 48, fontFamily: 'cursive_bold', marginLeft: 32, marginBottom: 32 }}>Sign in</Text>
-                    <Text style={{ fontSize: 16, marginLeft: 48 }}>Email address</Text>
+                <View style={{ backgroundColor: 'white', flex: 1, justifyContent: 'center', alignItems:'center' }}>
+                    <Text style={{ fontSize: 48, fontFamily: 'cursive_bold', marginBottom: 32, marginRight: 256 }}>Sign in</Text>
+                    <Text style={{ fontSize: 16, marginRight: 192 }}>Email address</Text>
                     <TextInput onChangeText={(mail) => this.setState({ mail })} style={styles.input} keyboardType='email-address' ></TextInput>
 
-                    <TouchableHighlight style={{ alignItems: 'center', backgroundColor: 'lightgreen', marginLeft: 64, padding: 16, width: 256 }} underlayColor="limegreen" onPress={() => this.checkSubmit('otpConfirm')}>
+                    <TouchableHighlight style={{ alignItems: 'center', backgroundColor: 'lightgreen', padding: 16, width: 256 }} underlayColor="limegreen" onPress={() => this.checkSubmit('otpConfirm')}>
                         <Text style={{ color: 'white', fontSize: 16 }}>Next</Text>
                     </TouchableHighlight>
 
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
         fontSize: 64
     },
     input: {
-        marginLeft: 64,
+        // marginLeft: 64,
         width: 256,
     }
 });
